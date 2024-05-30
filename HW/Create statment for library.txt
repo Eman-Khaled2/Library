@@ -1,0 +1,74 @@
+
+Create TABLE Employee
+(
+  ID INT,
+  SSN varchar(50),
+  Name varchar(50),
+  City varchar(50),
+  Town varchar(50),
+  Street varchar(50),
+  Salary INT,
+  NumberOfHour INT,
+  Status varchar(50),
+  TypeOfEmployee varchar(50),
+  DepartmentName varchar(50),
+  Gender varchar(50),
+  BirthDate varchar(50),
+  PRIMARY KEY (ID)
+);
+
+Create TABLE Department
+(
+  Name varchar(50),
+  id INT,
+  NumberOfTables INT,
+  ManagerId INT,
+  PRIMARY KEY (id),
+  FOREIGN KEY (ManagerId)
+);
+
+Create TABLE Books
+(
+  ISBN INT,
+  Title varchar(50),
+  Author varchar(50),
+  Published_year DATE,
+  DepartmentId INT,
+  status varchar(50),
+  PRIMARY KEY (ISBN),
+  FOREIGN KEY (DepartmentId)
+);
+
+Create TABLE Dependents
+(
+  SSN INT,
+  EmployeeId INT,
+  Name varchar(50),
+  RelationType varchar(50),
+  PRIMARY KEY (SSN),
+  FOREIGN KEY (EmployeeId)
+);
+
+Create TABLE Participants
+(
+  ParticipantsId INT,
+  SSN INT,
+  Name varchar(50),
+  PhoneNumber varchar(50),
+  City varchar(50),
+  Street varchar(50),
+  Status varchar(50),
+  PRIMARY KEY (ParticipantsId)
+);
+
+Create TABLE BorrowedBook
+(
+  BookId INT,
+  ParticipantsId INT,
+  Book_ISBN INT,
+  Date_borrow DATE,
+  Date_return DATE,
+  PRIMARY KEY (BookId),
+  FOREIGN KEY (ParticipantsId),
+  FOREIGN KEY (Book_ISBN)
+);
